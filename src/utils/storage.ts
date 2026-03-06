@@ -6,6 +6,37 @@ const SESSION_KEY = 'ecommerce_session';
 const CART_KEY = 'ecommerce_cart';
 
 export const storage = {
+  ensureDemoUsers(): void {
+    const users = this.getUsers();
+    if (users.length > 0) return;
+
+    const demoUsers: User[] = [
+      {
+        id: 'demo-main-001',
+        name: 'Main User',
+        email: 'main@test.com',
+        password: 'Main@123',
+        isAdmin: false,
+      },
+      {
+        id: 'demo-test-001',
+        name: 'Test User',
+        email: 'test@test.com',
+        password: 'Test@123',
+        isAdmin: false,
+      },
+      {
+        id: 'demo-admin-001',
+        name: 'Admin User',
+        email: 'admin@test.com',
+        password: 'Admin@123',
+        isAdmin: true,
+      },
+    ];
+
+    localStorage.setItem(USERS_KEY, JSON.stringify(demoUsers));
+  },
+
   getUsers(): User[] {
     const users = localStorage.getItem(USERS_KEY);
     return users ? JSON.parse(users) : [];

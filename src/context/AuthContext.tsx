@@ -14,6 +14,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
+    storage.ensureDemoUsers();
+
     const session = storage.getSession();
     if (session) {
       setUser(session.user);
