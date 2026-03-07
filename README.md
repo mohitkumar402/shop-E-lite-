@@ -82,20 +82,3 @@ npm run dev
 npm run build
 ```
 
-## Deploy to Vercel
-This repository already includes `vercel.json` for SPA routing and Vite output.
-
-1. Push repo to GitHub.
-2. Import project in Vercel.
-3. Deploy with detected settings.
-
-Current Vercel config:
-- Build Command: `npm run build`
-- Output Directory: `dist`
-- Rewrites all routes to `index.html`
-
-## Useful Scripts
-- `npm run dev` - run local dev server
-- `npm run build` - production build
-- `npm run preview` - preview production build
-- `npm run lint` - lint checks
